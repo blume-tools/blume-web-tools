@@ -822,6 +822,7 @@ const T = isDE ? {
   lockText:         'Gib deine Daten\nein, um es zu sehen',
   ctaHeading:       'Bereit loszulegen?',
   ctaBody:          'Finde in nur 5 Minuten heraus, ob du für das Programm geeignet bist, indem du das Online-Gesundheitsscreening ausfüllst.',
+  calcBtn:          'Berechnen',
   ctaBtn:           'Eignung prüfen',
   disclaimer:       'Basierend auf einer klinischen Studie aus dem Jahr 2022, veröffentlicht im New England Journal of Medicine (Jastreboff et al., 2022).',
   cardBmi:          'Aktueller BMI',
@@ -853,6 +854,7 @@ const T = isDE ? {
   lockText:         'Enter your\ndetails to see',
   ctaHeading:       'Ready to start?',
   ctaBody:          "Find out if you're eligible for the programme in just 5 minutes by completing the online health screening.",
+  calcBtn:          'Calculate',
   ctaBtn:           'Check eligibility',
   disclaimer:       'Based on a 2022 clinical study published in the New England Journal of Medicine (Jastreboff et al., 2022).',
   cardBmi:          'Current BMI',
@@ -943,6 +945,7 @@ document.querySelector('.time-label').textContent                         = T.ti
 document.querySelector('.lock-text').innerHTML                            = T.lockText.replace('\n', '<br>');
 document.querySelector('.cta-heading').textContent                        = T.ctaHeading;
 document.querySelector('.cta-body').textContent                           = T.ctaBody;
+document.getElementById('calcBtn').textContent                            = T.calcBtn;
 document.querySelector('.btn-eligibility').textContent                    = T.ctaBtn;
 document.querySelector('.disclaimer-text').textContent                    = T.disclaimer;
 document.querySelector('.summary-card-label').textContent                 = T.cardBmi;
