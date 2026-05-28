@@ -1044,6 +1044,12 @@ const isDE = (function() {
          /\/de\/|\/de$/.test(ref);
 })();
 
+const isUK = (function() {
+  const url = window.location.href;
+  const ref = document.referrer;
+  return /\/en-gb\//i.test(url) || /\/en-gb\//i.test(ref);
+})();
+
 const T = isDE ? {
   heroTitle:       'Finde heraus, wie viel Gewicht du verlieren könntest',
   heroSubtitle:    'Tausende Menschen haben ihr Programm mit Blume gestartet. Gib deine Daten ein, um zu sehen, wie viel auch du verlieren könntest.',
@@ -1151,7 +1157,7 @@ const WEBHOOK_URL = 'https://hook.eu2.make.com/e4ei5hjm62oa44mzsfy4d44eyxv1knnl'
 // ══════════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════════
-let useMetric = true;
+let useMetric = !isUK;
 let calc = null;
 let chartMode = 'weight';
 
@@ -1198,11 +1204,11 @@ document.getElementById('heroSubtitle').textContent    = T.heroSubtitle;
 document.getElementById('s1HeightLabel').textContent   = T.labelHeight;
 document.getElementById('s1WeightLabel').textContent   = T.labelWeight;
 document.getElementById('step1Btn').textContent        = T.btnSeeResults;
-document.getElementById('unitToggle1').textContent     = T.unitToggleToImp;
+document.getElementById('unitToggle1').textContent     = useMetric ? T.unitToggleToImp : T.unitToggleToMet;
 document.getElementById('back2Label').textContent      = T.back;
 document.getElementById('s2TargetLabel').textContent   = T.labelTarget;
 document.getElementById('step2Btn').textContent        = T.btnContinue;
-document.getElementById('unitToggle2').textContent     = T.unitToggleToImp;
+document.getElementById('unitToggle2').textContent     = useMetric ? T.unitToggleToImp : T.unitToggleToMet;
 document.getElementById('back3Label').textContent      = T.back;
 document.getElementById('s3Heading').textContent       = T.s3Heading;
 document.getElementById('s3FirstLabel').textContent    = T.labelFirstName;
@@ -1227,6 +1233,11 @@ document.getElementById('uwTitle').textContent         = T.uwTitle;
 document.getElementById('uwBody').textContent          = T.uwBody;
 document.querySelectorAll('.bmi-label-low').forEach(el => el.textContent = T.low);
 document.querySelectorAll('.bmi-label-high').forEach(el => el.textContent = T.high);
+if (!useMetric) {
+  document.getElementById('heightUnit').textContent = 'in';
+  document.getElementById('weightUnit').textContent = 'lbs';
+  document.getElementById('targetUnit').textContent = 'lbs';
+}
 
 // ══════════════════════════════════════════════════
 // HELPERS
