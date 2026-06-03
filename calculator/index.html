@@ -795,17 +795,27 @@
 <script>
 // ── Localisation ──
 const isDE = (function() {
-  const url = window.location.href;
-  const ref = document.referrer;
-  return /\/de\/|\/de$|\?.*locale=de|&locale=de/.test(url) ||
-         /\/de\/|\/de$/.test(ref);
+  const params   = new URLSearchParams(window.location.search);
+  const locale   = (params.get('locale') || '').toLowerCase();
+  const embedUrl = decodeURIComponent(params.get('embed_url') || '');
+  const url      = window.location.href;
+  const ref      = document.referrer;
+  return locale === 'de' ||
+         /\/de\/|\/de$/.test(url) ||
+         /\/de\/|\/de$/.test(ref) ||
+         /\/de\/|\/de$/.test(embedUrl);
 })();
 
 const isUK = (function() {
-  const url = window.location.href;
-  const ref = document.referrer;
-  return /\/en-gb\/|\/en-gb$|\?.*locale=en-gb|&locale=en-gb/i.test(url) ||
-         /\/en-gb\/|\/en-gb$/i.test(ref);
+  const params   = new URLSearchParams(window.location.search);
+  const locale   = (params.get('locale') || '').toLowerCase();
+  const embedUrl = decodeURIComponent(params.get('embed_url') || '');
+  const url      = window.location.href;
+  const ref      = document.referrer;
+  return locale === 'en-gb' ||
+         /\/en-gb\/|\/en-gb$/i.test(url) ||
+         /\/en-gb\/|\/en-gb$/i.test(ref) ||
+         /\/en-gb\/|\/en-gb$/i.test(embedUrl);
 })();
 
 const T = isDE ? {
