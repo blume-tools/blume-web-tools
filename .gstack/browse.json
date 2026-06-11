@@ -1,9 +1,0 @@
-{
-  "pid": 50172,
-  "port": 37095,
-  "token": "141ee4c6-be63-47aa-b98e-1b58e743c533",
-  "startedAt": "2026-06-11T14:21:15.868Z",
-  "serverPath": "/Users/mirohovius/.claude/skills/gstack/browse/src/server.ts",
-  "mode": "launched",
-  "configHash": "303a7eeccc03078b"
-}
