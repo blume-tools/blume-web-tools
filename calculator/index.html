@@ -667,10 +667,6 @@
           <span class="input-unit" id="targetUnit">kg</span>
         </div>
       </div>
-      <div class="field-group">
-        <label class="field-label">Email</label>
-        <input class="field-input" id="emailInput" type="email" placeholder="example@email.com" inputmode="email">
-      </div>
       <div id="formError" class="form-error hidden"></div>
       <div class="form-actions">
         <button class="btn-calculate" id="calcBtn">Calculate</button>
@@ -823,8 +819,6 @@ const T = isDE ? {
   labelHeight:      'Größe',
   labelWeight:      'Gewicht',
   labelTarget:      'Zielgewicht',
-  labelEmail:       'E-Mail',
-  placeholder_email:'beispiel@email.de',
   unitToggleToImp:  'In Pfund wechseln',
   unitToggleToMet:  'In Metrisch wechseln',
   resultTitle:      'Potenzielle Gewichtsabnahme',
@@ -855,8 +849,6 @@ const T = isDE ? {
   labelHeight:      'Height',
   labelWeight:      'Weight',
   labelTarget:      'Target Weight',
-  labelEmail:       'Email',
-  placeholder_email:'example@email.com',
   unitToggleToImp:  'Change to pounds',
   unitToggleToMet:  'Change to metric',
   resultTitle:      'Potential weight loss',
@@ -908,9 +900,6 @@ const MONTHLY_PCT = [
   0.222,  // Month 18 — ~22.2%
 ];
 
-// ── Webhook — set your endpoint here ──
-const WEBHOOK_URL = 'https://hook.eu2.make.com/e4ei5hjm62oa44mzsfy4d44eyxv1knnl';
-
 // ── State ──
 let useMetric  = !isUK; // UK defaults to imperial
 let calc       = null;
@@ -922,7 +911,6 @@ const resultState  = document.getElementById('resultState');
 const heightInput  = document.getElementById('heightInput');
 const weightInput  = document.getElementById('weightInput');
 const targetInput  = document.getElementById('targetInput');
-const emailInput   = document.getElementById('emailInput');
 const calcBtn      = document.getElementById('calcBtn');
 const unitToggle   = document.getElementById('unitToggle');
 const resetBtn     = document.getElementById('resetBtn');
@@ -946,9 +934,7 @@ document.querySelector('label.field-label:nth-of-type(3)')  // Target Weight lab
   || Array.from(document.querySelectorAll('.field-label')).find(el => el.textContent.trim() === 'Target Weight' || el.textContent.trim() === 'Zielgewicht');
 Array.from(document.querySelectorAll('.field-label')).forEach(el => {
   if (el.textContent.trim() === 'Target Weight') el.textContent = T.labelTarget;
-  if (el.textContent.trim() === 'Email')         el.textContent = T.labelEmail;
 });
-document.getElementById('emailInput').placeholder                         = T.placeholder_email;
 document.getElementById('unitToggle').textContent                         = T.unitToggleToImp;
 document.querySelector('.result-title').textContent                       = T.resultTitle;
 document.querySelector('.time-label').textContent                         = T.timeLabel;
@@ -1012,21 +998,6 @@ function getUrlParams() {
   return params;
 }
 
-// ── Webhook submission ──
-function submitToWebhook(data) {
-  if (!WEBHOOK_URL) return;
-  const urlParams = getUrlParams();
-  const language = isDE ? 'German - DE' : 'English - EN';
-  const embedUrl = new URLSearchParams(window.location.search).get('embed_url');
-  const pageUrl  = embedUrl || window.location.href;
-  const payload = Object.assign({}, data, { language, url_params: urlParams, page_url: pageUrl, timestamp: new Date().toISOString() });
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(() => {}); // silent fail
-}
-
 // ── Unit toggle ──
 unitToggle.addEventListener('click', () => {
   useMetric = !useMetric;
@@ -1082,13 +1053,12 @@ function clearFormError()   { formErrorEl.textContent = ''; formErrorEl.classLis
 // ── Validation ──
 function validate() {
   let ok = true;
-  [heightInput, weightInput, targetInput, emailInput].forEach(el => el.classList.remove('error'));
+  [heightInput, weightInput, targetInput].forEach(el => el.classList.remove('error'));
   clearFormError();
 
   const h = parseFloat(heightInput.value);
   const w = parseFloat(weightInput.value);
   const t = parseFloat(targetInput.value);
-  const e = emailInput.value.trim();
 
   if (!h || h <= 0) { heightInput.classList.add('error'); ok = false; }
   if (!w || w <= 0) { weightInput.classList.add('error'); ok = false; }
@@ -1098,7 +1068,6 @@ function validate() {
     showFormError(T.errorTargetLow);
     ok = false;
   }
-  if (!e || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(e)) { emailInput.classList.add('error'); ok = false; }
 
   return ok;
 }
@@ -1130,31 +1099,12 @@ calcBtn.addEventListener('click', () => {
 
   calc = { heightCm, weightKg, targetKg, bmi, cat, weights, months, targetClamped };
 
-  // Submit to webhook (fire and forget)
-  submitToWebhook({
-    email:          emailInput.value.trim(),
-    height_cm:      Math.round(heightCm * 10) / 10,
-    weight_kg:      Math.round(weightKg * 10) / 10,
-    target_weight_kg: Math.round(targetKg * 10) / 10,
-    height_raw:     hRaw,
-    weight_raw:     wRaw,
-    target_raw:     tRaw,
-    unit:           useMetric ? 'metric' : 'imperial',
-    bmi:            Math.round(bmi * 10) / 10,
-    bmi_category:   cat.label,
-    months_to_target: months,
-  });
-
   // Mixpanel
-  const _email = emailInput.value.trim();
-  mixpanel.identify(_email);
-  mixpanel.people.set({ '$email': _email });
   mixpanel.track('BMI Calculator Submitted', Object.assign({
     bmi_category:    cat.label,
     months_to_target: months,
     unit:            useMetric ? 'metric' : 'imperial',
     eligible:        bmi >= 25,
-    $email:          _email,
   }, getUrlParams()));
 
   showResults();

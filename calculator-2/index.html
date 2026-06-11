@@ -847,94 +847,6 @@
     </div>
   </div>
 
-  <!-- ═══════════ STEP 3: Contact Form + Locked Chart ═══════════ -->
-  <div id="step3" class="hidden" style="width:100%;">
-    <div class="glass-card wide" style="margin:0 auto;">
-      <div class="inner-card two-col">
-        <div class="col-left">
-          <button class="back-btn" id="back3">
-            <div class="icon-circle">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M10 12L6 8L10 4" stroke="#14301a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </div>
-            <span id="back3Label">Back</span>
-          </button>
-          <p class="bmi-heading" id="s3Heading">One last step. Tell us where to send your personalised report.</p>
-          <div style="display:flex;flex-direction:column;gap:20px;">
-            <div class="field-row">
-              <div class="field-group">
-                <label class="field-label" id="s3FirstLabel">First name</label>
-                <input class="field-input" id="firstNameInput" type="text">
-              </div>
-              <div class="field-group">
-                <label class="field-label" id="s3LastLabel">Last name</label>
-                <input class="field-input" id="lastNameInput" type="text">
-              </div>
-            </div>
-            <div class="field-group">
-              <label class="field-label" id="s3EmailLabel">Email</label>
-              <input class="field-input" id="emailInput" type="email" placeholder="example@email.com" inputmode="email">
-            </div>
-          </div>
-          <div id="s3Error" class="form-error hidden"></div>
-          <div class="consent-row">
-            <button class="btn-primary" id="step3Btn">See my results</button>
-            <p class="consent-text" id="consentText">You'll receive a copy of your results and programme information. Unsubscribe anytime.</p>
-          </div>
-        </div>
-        <div class="col-divider"></div>
-        <div class="col-right" style="align-items:center;">
-          <div class="chart-header">
-            <div class="chart-title-row">
-              <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M14.9644 8.3125L12.9644 3.3125C12.927 3.22003 12.8628 3.14087 12.78 3.08518C12.6973 3.02949 12.5998 2.99983 12.5 3C12.4636 3.00055 12.4274 3.00495 12.3919 3.01312L8.50001 3.875V2.5C8.50001 2.36739 8.44733 2.24021 8.35356 2.14645C8.2598 2.05268 8.13262 2 8.00001 2C7.8674 2 7.74022 2.05268 7.64646 2.14645C7.55269 2.24021 7.50001 2.36739 7.50001 2.5V4.09875L3.39188 5.01312C3.31268 5.03041 3.23887 5.06669 3.17681 5.11884C3.11475 5.171 3.0663 5.23746 3.03563 5.3125L1.03563 10.3125C1.01171 10.3721 0.999609 10.4358 1.00001 10.5C1.00001 11.9569 2.53376 12.5 3.50001 12.5C4.46626 12.5 6.00001 11.9569 6.00001 10.5C6.00041 10.4358 5.98831 10.3721 5.96438 10.3125L4.18251 5.86062L7.50001 5.125V13H6.50001C6.3674 13 6.24022 13.0527 6.14646 13.1464C6.05269 13.2402 6.00001 13.3674 6.00001 13.5C6.00001 13.6326 6.05269 13.7598 6.14646 13.8536C6.24022 13.9473 6.3674 14 6.50001 14H9.50001C9.63262 14 9.7598 13.9473 9.85356 13.8536C9.94733 13.7598 10 13.6326 10 13.5C10 13.3674 9.94733 13.2402 9.85356 13.1464C9.7598 13.0527 9.63262 13 9.50001 13H8.50001V4.90125L11.6875 4.19375L10.0356 8.3125C10.0117 8.3721 9.99961 8.43578 10 8.5C10 9.95687 11.5338 10.5 12.5 10.5C13.4663 10.5 15 9.95687 15 8.5C15.0004 8.43578 14.9883 8.3721 14.9644 8.3125ZM4.96438 10.5H2.03876L3.50001 6.84625L4.96438 10.5ZM11.0419 8.5L12.5 4.84625L13.9613 8.5H11.0419Z" fill="#14301a"/></svg>
-              <span class="chart-title" id="chartTitle">Potential weight loss</span>
-            </div>
-            <div class="dropdown-wrap" id="dropdownWrap">
-              <button class="dropdown-pill" id="chartModeBtn" type="button">
-                <span id="chartModeLabel">Weight</span>
-                <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M4 6l4 4 4-4" stroke="#14301a" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </button>
-              <div class="dropdown-menu" id="chartDropdown">
-                <div class="dropdown-option selected" data-value="weight">
-                  <svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="#14301a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  Weight
-                </div>
-                <div class="dropdown-option" data-value="bmi">
-                  <svg class="check" viewBox="0 0 16 16" fill="none"><path d="M3 8l3.5 3.5L13 4.5" stroke="#14301a" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                  BMI
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="chart-container chart-blurred" id="chartContainer">
-            <div class="time-estimate">
-              <span class="time-label" id="timeLabel">Est. time till target</span>
-              <span class="time-value" id="timeValue">--mo.</span>
-            </div>
-            <div class="chart-canvas-wrap">
-              <canvas id="chartCanvas"></canvas>
-              <div class="weight-tooltip" id="weightTooltip"></div>
-              <div class="tooltip-line" id="tooltipLine"></div>
-            </div>
-            <canvas class="ticks-canvas" id="ticksCanvas"></canvas>
-            <div class="chart-axis" id="chartAxis">
-              <span>Now</span><span>Mo. 1</span><span>Mo. 2</span><span>Mo. 3</span><span>Mo. 4</span><span>Mo. 5</span><span>Mo. 6</span>
-            </div>
-
-            <div class="lock-overlay" id="lockOverlay">
-              <div class="lock-icon-circle">
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M16.25 6.25H13.75V4.375C13.75 3.38044 13.3549 2.42661 12.6517 1.72335C11.9484 1.02009 10.9946 0.625 10 0.625C9.00544 0.625 8.05161 1.02009 7.34835 1.72335C6.64509 2.42661 6.25 3.38044 6.25 4.375V6.25H3.75C3.41848 6.25 3.10054 6.3817 2.86612 6.61612C2.6317 6.85054 2.5 7.16848 2.5 7.5V16.25C2.5 16.5815 2.6317 16.8995 2.86612 17.1339C3.10054 17.3683 3.41848 17.5 3.75 17.5H16.25C16.5815 17.5 16.8995 17.3683 17.1339 17.1339C17.3683 16.8995 17.5 16.5815 17.5 16.25V7.5C17.5 7.16848 17.3683 6.85054 17.1339 6.61612C16.8995 6.3817 16.5815 6.25 16.25 6.25ZM10.625 12.393V14.375C10.625 14.5408 10.5592 14.6997 10.4419 14.8169C10.3247 14.9342 10.1658 15 10 15C9.83424 15 9.67527 14.9342 9.55806 14.8169C9.44085 14.6997 9.375 14.5408 9.375 14.375V12.393C8.95799 12.2455 8.60653 11.9554 8.38273 11.5739C8.15893 11.1924 8.07721 10.7441 8.152 10.3081C8.2268 9.8722 8.45329 9.47674 8.79146 9.19165C9.12963 8.90656 9.5577 8.7502 10 8.7502C10.4423 8.7502 10.8704 8.90656 11.2085 9.19165C11.5467 9.47674 11.7732 9.8722 11.848 10.3081C11.9228 10.7441 11.8411 11.1924 11.6173 11.5739C11.3935 11.9554 11.042 12.2455 10.625 12.393ZM12.5 6.25H7.5V4.375C7.5 3.71196 7.76339 3.07607 8.23223 2.60723C8.70107 2.13839 9.33696 1.875 10 1.875C10.663 1.875 11.2989 2.13839 11.7678 2.60723C12.2366 3.07607 12.5 3.71196 12.5 4.375V6.25Z" fill="#14301a"/></svg>
-              </div>
-              <div class="lock-text" id="lockText">Enter your<br>details to see</div>
-            </div>
-          </div>
-
-          <p class="disclaimer-text" id="disclaimerText">Based on a 2022 clinical study published in the New England Journal of Medicine (Jastreboff et al., 2022).</p>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- ═══════════ STEP 4: Full Results ═══════════ -->
   <div id="step4" class="hidden" style="width:100%;">
     <div class="glass-card wide" style="margin:0 auto;">
@@ -1056,12 +968,7 @@ const T = isDE ? {
   labelHeight:     'Größe',
   labelWeight:     'Gewicht',
   labelTarget:     'Zielgewicht',
-  labelFirstName:  'Vorname',
-  labelLastName:   'Nachname',
-  labelEmail:      'E-Mail',
-  placeholderEmail:'beispiel@email.de',
   btnSeeResults:   'Meine Ergebnisse anzeigen',
-  btnContinue:     'Weiter',
   unitToggleToImp: 'In Pfund wechseln',
   unitToggleToMet: 'In Metrisch wechseln',
   back:            'Zurück',
@@ -1070,10 +977,8 @@ const T = isDE ? {
   notEligibleP2:   ', was im gesunden Bereich liegt.',
   notEligibleP2Sub:'Ein medizinisch überwachtes Abnehmprogramm wird in der Regel bei einem höheren BMI empfohlen.',
   goalWeightQ:     ' Was ist dein Zielgewicht?',
-  s3Heading:       'Letzter Schritt. Sag uns, wohin wir deinen personalisierten Bericht senden sollen.',
-  consentText:     'Du erhältst eine Kopie deiner Ergebnisse und Programminformationen. Jederzeit abbestellbar.',
   resetBtn:        'Rechner zurücksetzen',
-  resultMsg:       '{name}, du könntest in den nächsten {weeks} Wochen {weight} verlieren, wenn du heute anfängst.',
+  resultMsg:       'Du könntest in den nächsten {weeks} Wochen {weight} verlieren, wenn du heute anfängst.',
   resultSub:       'Mit {weight} könntest du bereits Verbesserungen bei Blutdruck, Energieniveau und der Passform deiner Kleidung bemerken.',
   chartTitle:      'Potenzielle Gewichtsabnahme',
   timeLabel:       'Geschätzte Zeit bis zum Ziel',
@@ -1081,7 +986,6 @@ const T = isDE ? {
   chartBmi:        'BMI',
   moSuffix:        'Mo.',
   moreThan18:      '>18Mo.',
-  lockText:        'Gib deine Daten\nein, um es zu sehen',
   disclaimer:      'Basierend auf einer klinischen Studie aus dem Jahr 2022, veröffentlicht im New England Journal of Medicine (Jastreboff et al., 2022).',
   ctaText:         'Ist eine Behandlung das Richtige für dich? Finde es in 5 Minuten heraus.',
   ctaBtn:          'Eignungsprüfung starten',
@@ -1092,7 +996,7 @@ const T = isDE ? {
   bmiHealthy:      'gesund',
   bmiOverweight:   'übergewichtig',
   bmiObese:        'adipös',
-  notEligibleHead: '{name}, dein BMI liegt bei {bmi} – im gesunden Bereich.',
+  notEligibleHead: 'Dein BMI liegt bei {bmi} – im gesunden Bereich.',
   notEligibleSub:  'Ein medizinisch überwachtes Abnehmprogramm wird typischerweise ab einem BMI von 25 oder höher empfohlen.',
   low:             'Niedrig',
   high:            'Hoch',
@@ -1102,12 +1006,7 @@ const T = isDE ? {
   labelHeight:     'Height',
   labelWeight:     'Weight',
   labelTarget:     'Target weight',
-  labelFirstName:  'First name',
-  labelLastName:   'Last name',
-  labelEmail:      'Email',
-  placeholderEmail:'example@email.com',
   btnSeeResults:   'See my results',
-  btnContinue:     'Continue',
   unitToggleToImp: 'Change to pounds',
   unitToggleToMet: 'Change to metric',
   back:            'Back',
@@ -1116,10 +1015,8 @@ const T = isDE ? {
   notEligibleP2:   ', which is in the healthy range.',
   notEligibleP2Sub:'A medically supervised weight loss programme is typically recommended for a higher BMI.',
   goalWeightQ:     " What's your goal weight?",
-  s3Heading:       'One last step. Tell us where to send your personalised report.',
-  consentText:     "You'll receive a copy of your results and programme information. Unsubscribe anytime.",
   resetBtn:        'Reset calculator',
-  resultMsg:       '{name}, you could lose {weight} in the next {weeks} weeks if you start today.',
+  resultMsg:       'You could lose {weight} in the next {weeks} weeks if you start today.',
   resultSub:       'At {weight}, you could already see improvements in blood pressure, energy levels, and how your clothes fit.',
   chartTitle:      'Potential weight loss',
   timeLabel:       'Est. time till target',
@@ -1127,7 +1024,6 @@ const T = isDE ? {
   chartBmi:        'BMI',
   moSuffix:        'mo.',
   moreThan18:      '>18mo.',
-  lockText:        'Enter your\ndetails to see',
   disclaimer:      'Based on a 2022 clinical study published in the New England Journal of Medicine (Jastreboff et al., 2022).',
   ctaText:         'Is treatment right for you? Find out in 5 minutes.',
   ctaBtn:          'Start eligibility check',
@@ -1138,7 +1034,7 @@ const T = isDE ? {
   bmiHealthy:      'healthy',
   bmiOverweight:   'overweight',
   bmiObese:        'obese',
-  notEligibleHead: "{name}, your BMI is {bmi} — in the healthy range.",
+  notEligibleHead: "Your BMI is {bmi} — in the healthy range.",
   notEligibleSub:  'A medically supervised weight loss programme is typically recommended for a BMI of 25 or above.',
   low:             'Low',
   high:            'High',
@@ -1152,8 +1048,6 @@ const MONTHLY_PCT = [
   0.185, 0.193, 0.199, 0.205, 0.210, 0.214, 0.217, 0.220, 0.222
 ];
 
-const WEBHOOK_URL = 'https://hook.eu2.make.com/e4ei5hjm62oa44mzsfy4d44eyxv1knnl';
-
 // ══════════════════════════════════════════════════
 // STATE
 // ══════════════════════════════════════════════════
@@ -1166,25 +1060,11 @@ let chartMode = 'weight';
 // ══════════════════════════════════════════════════
 const step1El = document.getElementById('step1');
 const step2El = document.getElementById('step2');
-const step3El = document.getElementById('step3');
 const step4El = document.getElementById('step4');
 
 const heightInput = document.getElementById('heightInput');
 const weightInput = document.getElementById('weightInput');
 const targetInput = document.getElementById('targetInput');
-const firstNameInput = document.getElementById('firstNameInput');
-const lastNameInput  = document.getElementById('lastNameInput');
-const emailInput     = document.getElementById('emailInput');
-
-// Step 3 chart elements
-const canvas     = document.getElementById('chartCanvas');
-const ctx        = canvas.getContext('2d');
-const tooltip    = document.getElementById('weightTooltip');
-const tooltipLine= document.getElementById('tooltipLine');
-const ticksCanvas= document.getElementById('ticksCanvas');
-const tCtx       = ticksCanvas.getContext('2d');
-const chartContainer = document.getElementById('chartContainer');
-const timeValueEl    = document.getElementById('timeValue');
 
 // Step 4 chart elements
 const canvas4     = document.getElementById('chartCanvas4');
@@ -1207,22 +1087,9 @@ document.getElementById('step1Btn').textContent        = T.btnSeeResults;
 document.getElementById('unitToggle1').textContent     = useMetric ? T.unitToggleToImp : T.unitToggleToMet;
 document.getElementById('back2Label').textContent      = T.back;
 document.getElementById('s2TargetLabel').textContent   = T.labelTarget;
-document.getElementById('step2Btn').textContent        = T.btnContinue;
+document.getElementById('step2Btn').textContent        = T.btnSeeResults;
 document.getElementById('unitToggle2').textContent     = useMetric ? T.unitToggleToImp : T.unitToggleToMet;
-document.getElementById('back3Label').textContent      = T.back;
-document.getElementById('s3Heading').textContent       = T.s3Heading;
-document.getElementById('s3FirstLabel').textContent    = T.labelFirstName;
-document.getElementById('s3LastLabel').textContent     = T.labelLastName;
-document.getElementById('s3EmailLabel').textContent    = T.labelEmail;
-document.getElementById('emailInput').placeholder      = T.placeholderEmail;
-document.getElementById('step3Btn').textContent        = T.btnSeeResults;
-document.getElementById('consentText').textContent     = T.consentText;
-document.getElementById('chartTitle').textContent      = T.chartTitle;
 document.getElementById('chartTitle4').textContent     = T.chartTitle;
-document.getElementById('chartModeLabel').textContent  = T.chartWeight;
-document.getElementById('timeLabel').textContent       = T.timeLabel;
-document.getElementById('lockText').innerHTML          = T.lockText.replace('\n','<br>');
-document.getElementById('disclaimerText').textContent  = T.disclaimer;
 document.getElementById('resetLabel').textContent      = T.resetBtn;
 document.getElementById('timeLabel4').textContent      = T.timeLabel;
 document.getElementById('chartModeLabel4').textContent = T.chartWeight;
@@ -1269,26 +1136,11 @@ function getUrlParams() {
   return p;
 }
 
-function submitToWebhook(data) {
-  if (!WEBHOOK_URL) return;
-  const payload = Object.assign({}, data, {
-    language: isDE ? 'German - DE' : 'English - EN',
-    url_params: getUrlParams(),
-    page_url: window.location.href,
-    timestamp: new Date().toISOString()
-  });
-  fetch(WEBHOOK_URL, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(payload)
-  }).catch(() => {});
-}
-
 // ══════════════════════════════════════════════════
 // STEP NAVIGATION
 // ══════════════════════════════════════════════════
 function showStep(n) {
-  [step1El, step2El, step3El, step4El].forEach((el, i) => {
+  [step1El, step2El, step4El].forEach((el, i) => {
     const show = i === n - 1;
     el.classList.toggle('hidden', !show);
     if (show) {
@@ -1409,68 +1261,13 @@ document.getElementById('step2Btn').addEventListener('click', () => {
   calc.weights = weights;
   calc.months = months;
 
-  // Init chart on step 3 (locked/placeholder)
-  showStep(3);
-  setTimeout(() => {
-    resizeCanvas(canvas, ctx, ticksCanvas, tCtx);
-    drawPlaceholder(canvas, ctx, ticksCanvas, tCtx);
-  }, 50);
-});
-
-// ══════════════════════════════════════════════════
-// STEP 3: Contact form → Results
-// ══════════════════════════════════════════════════
-document.getElementById('back3').addEventListener('click', () => showStep(2));
-
-document.getElementById('step3Btn').addEventListener('click', () => {
-  firstNameInput.classList.remove('error');
-  lastNameInput.classList.remove('error');
-  emailInput.classList.remove('error');
-  document.getElementById('s3Error').classList.add('hidden');
-
-  const fn = firstNameInput.value.trim();
-  const ln = lastNameInput.value.trim();
-  const em = emailInput.value.trim();
-  let ok = true;
-  if (!fn) { firstNameInput.classList.add('error'); ok = false; }
-  if (!ln) { lastNameInput.classList.add('error'); ok = false; }
-  if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) { emailInput.classList.add('error'); ok = false; }
-  if (!ok) return;
-
-  calc.firstName = fn;
-  calc.lastName  = ln;
-  calc.email     = em;
-
-  // Submit to webhook
-  const hRaw = parseFloat(heightInput.value);
-  const wRaw = parseFloat(weightInput.value);
-  const tRaw = parseFloat(targetInput.value);
-  submitToWebhook({
-    first_name:     fn,
-    last_name:      ln,
-    email:          em,
-    height_cm:      Math.round(calc.heightCm * 10) / 10,
-    weight_kg:      Math.round(calc.weightKg * 10) / 10,
-    target_weight_kg: Math.round(calc.targetKg * 10) / 10,
-    height_raw:     hRaw,
-    weight_raw:     wRaw,
-    target_raw:     tRaw,
-    unit:           useMetric ? 'metric' : 'imperial',
-    bmi:            Math.round(calc.bmi * 10) / 10,
-    bmi_category:   calc.cat.label,
-    months_to_target: calc.months,
-  });
-
   // Mixpanel
   try {
-  mixpanel.identify(em);
-  mixpanel.people.set({ '$email': em, '$first_name': fn, '$last_name': ln });
   mixpanel.track('Weight Loss Calculator Submitted', Object.assign({
     bmi_category:    calc.cat.label,
     months_to_target: calc.months,
     unit:            useMetric ? 'metric' : 'imperial',
     eligible:        calc.bmi >= 25,
-    $email:          em,
   }, getUrlParams()));
   } catch(e) {}
 
@@ -1481,7 +1278,7 @@ document.getElementById('step3Btn').addEventListener('click', () => {
 // SHOW RESULTS (Step 4)
 // ══════════════════════════════════════════════════
 function showResults() {
-  const { bmi, cat, targetKg, weightKg, months, firstName } = calc;
+  const { bmi, cat, targetKg, weightKg, months } = calc;
 
   // Weight lost in first 2 months (8 weeks)
   const lossKg = weightKg * MONTHLY_PCT[2]; // ~4.9% at month 2
@@ -1491,14 +1288,14 @@ function showResults() {
 
   if (bmi >= 25) {
     document.getElementById('resultHeading').textContent =
-      T.resultMsg.replace('{name}', firstName).replace('{weight}', lossStr).replace('{weeks}', '8');
+      T.resultMsg.replace('{weight}', lossStr).replace('{weeks}', '8');
     document.getElementById('resultSubtext').textContent =
       T.resultSub.replace('{weight}', lossStr);
     document.getElementById('ctaRow').classList.remove('hidden');
     document.getElementById('underweightWarning').classList.add('hidden');
   } else {
     document.getElementById('resultHeading').textContent =
-      T.notEligibleHead.replace('{name}', firstName).replace('{bmi}', bmi.toFixed(1));
+      T.notEligibleHead.replace('{bmi}', bmi.toFixed(1));
     document.getElementById('resultSubtext').textContent = T.notEligibleSub;
     document.getElementById('ctaRow').classList.add('hidden');
     document.getElementById('underweightWarning').classList.remove('hidden');
@@ -1520,7 +1317,7 @@ function showResults() {
     timeValueEl4.textContent = '--' + T.moSuffix;
   }
 
-  showStep(4);
+  showStep(3); // step4El is the 3rd entry now that the contact step is gone
 
   // Draw chart after DOM is visible
   setTimeout(() => {
@@ -1656,33 +1453,12 @@ document.getElementById('resetBtn').addEventListener('click', () => {
   heightInput.value = '';
   weightInput.value = '';
   targetInput.value = '';
-  firstNameInput.value = '';
-  lastNameInput.value = '';
-  emailInput.value = '';
   showStep(1);
 });
 
 // ══════════════════════════════════════════════════
 // CHART SYSTEM (shared between step 3 and step 4)
 // ══════════════════════════════════════════════════
-
-// Chart mode dropdown (Step 3)
-const chartDropdown = document.getElementById('chartDropdown');
-document.getElementById('chartModeBtn').addEventListener('click', e => {
-  e.stopPropagation();
-  chartDropdown.classList.toggle('open');
-});
-chartDropdown.querySelectorAll('.dropdown-option').forEach(opt => {
-  opt.addEventListener('click', e => {
-    e.stopPropagation();
-    const val = opt.dataset.value;
-    if (val === chartMode) { chartDropdown.classList.remove('open'); return; }
-    chartMode = val;
-    document.getElementById('chartModeLabel').textContent = val === 'weight' ? T.chartWeight : T.chartBmi;
-    chartDropdown.querySelectorAll('.dropdown-option').forEach(o => o.classList.toggle('selected', o.dataset.value === val));
-    chartDropdown.classList.remove('open');
-  });
-});
 
 // Chart mode dropdown (Step 4)
 const chartDropdown4 = document.getElementById('chartDropdown4');
@@ -1706,7 +1482,6 @@ chartDropdown4.querySelectorAll('.dropdown-option').forEach(opt => {
 });
 
 document.addEventListener('click', () => {
-  chartDropdown.classList.remove('open');
   chartDropdown4.classList.remove('open');
 });
 
@@ -1977,10 +1752,6 @@ canvas4.addEventListener('mouseleave', () => {
 
 // ── Window resize ──
 window.addEventListener('resize', () => {
-  if (step3El && !step3El.classList.contains('hidden')) {
-    resizeCanvas(canvas, ctx, ticksCanvas, tCtx);
-    drawPlaceholder(canvas, ctx, ticksCanvas, tCtx);
-  }
   if (step4El && !step4El.classList.contains('hidden') && calc) {
     resizeCanvas(canvas4, ctx4, ticksCanvas4, tCtx4);
     drawChart(canvas4, ctx4, ticksCanvas4, tCtx4, tooltip4, tooltipLine4, document.getElementById('chartAxis4'));
